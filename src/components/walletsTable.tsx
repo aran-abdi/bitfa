@@ -48,7 +48,7 @@ const WalletsTable: React.FC<{
     const formatNetProfit = (value: number) => {
 
         const sign = value > 0 ? '+' : value < 0 ? '-' : '';
-        const color = value > 0 ? 'text-green-400' : value < 0 ? 'text-red-300' : 'text-gray-100';
+        const color = value > 0 ? 'text-green-400' : value < 0 ? 'text-red-400' : 'text-gray-100';
 
         const positiveValue = Math.abs(Number(value));
 
