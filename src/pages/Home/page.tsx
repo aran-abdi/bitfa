@@ -38,7 +38,7 @@ function Home() {
     }, []);
 
     if (loading) return <LoadingSpinner />;
-    if (error) return <p>Error: {error}</p>;
+    if (error) return <p className="text-white text-2xl">Error: {error}</p>;
 
     return (
 

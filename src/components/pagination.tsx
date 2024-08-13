@@ -51,36 +51,38 @@ const Pagination: React.FC<{
     const pageNumbers = getPageNumbers();
 
     return (
-        <div className="flex justify-center items-center mt-4">
-            <button
-                className={`px-4 py-2 mx-1 font-semibold rounded-md ${currentPage === 1 ? 'bg-gray-600 text-gray-400' : 'bg-[#ff9800] text-white'}`}
-                onClick={() => onPageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-            >
-                Previous
-            </button>
-            {pageNumbers.map((page, index) =>
-                typeof page === 'number' ? (
-                    <button
-                        key={index}
-                        className={`px-4 py-2 mx-1 font-semibold rounded-md ${currentPage === page ? 'bg-[#ff9800] text-white' : 'bg-gray-600 text-white'}`}
-                        onClick={() => onPageChange(page)}
-                    >
-                        {page}
-                    </button>
-                ) : (
-                    <span key={index} className="px-3 py-1 mx-1 text-white">
-                        {page}
-                    </span>
-                )
-            )}
-            <button
-                className={`px-4 py-2 mx-1 font-semibold rounded-md ${currentPage === totalPages ? 'bg-gray-600 text-gray-400' : 'bg-[#ff9800] text-white'}`}
-                onClick={() => onPageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
-            >
-                Next
-            </button>
+        <div className="flex align-middle justify-center mt-12">
+            <div className="flex justify-center items-center mt-4">
+                <button
+                    className={`px-4 py-2 mx-1 font-semibold rounded-md ${currentPage === 1 ? 'bg-gray-600 text-gray-400' : 'bg-[#ff9800] text-white'}`}
+                    onClick={() => onPageChange(currentPage - 1)}
+                    disabled={currentPage === 1}
+                >
+                    Previous
+                </button>
+                {pageNumbers.map((page, index) =>
+                    typeof page === 'number' ? (
+                        <button
+                            key={index}
+                            className={`px-4 py-2 mx-1 font-semibold rounded-md ${currentPage === page ? 'bg-[#ff9800] text-white' : 'bg-gray-600 text-white'}`}
+                            onClick={() => onPageChange(page)}
+                        >
+                            {page}
+                        </button>
+                    ) : (
+                        <span key={index} className="px-3 py-1 mx-1 text-white">
+                            {page}
+                        </span>
+                    )
+                )}
+                <button
+                    className={`px-4 py-2 mx-1 font-semibold rounded-md ${currentPage === totalPages ? 'bg-gray-600 text-gray-400' : 'bg-[#ff9800] text-white'}`}
+                    onClick={() => onPageChange(currentPage + 1)}
+                    disabled={currentPage === totalPages}
+                >
+                    Next
+                </button>
+            </div>
         </div>
     );
 };

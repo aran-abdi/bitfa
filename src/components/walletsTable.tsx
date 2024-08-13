@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Pagination from "./pagination";
+import { useNavigate } from "react-router-dom";
 
 interface WalletData {
     walletAddress: string;
@@ -10,6 +11,8 @@ const WalletsTable: React.FC<{
     wallets: Array<WalletData>;
     perPage?: number;
 }> = ({ wallets, perPage = 5 }) => {
+
+    const navigate = useNavigate();
 
     // Pagination settings
     const totalItems = wallets.length; // Example total number of items
@@ -61,6 +64,10 @@ const WalletsTable: React.FC<{
         );
     };
 
+    const goToChart = (walletAddress: string) => {
+        navigate(`/charts/${walletAddress}`);
+    }
+
     return (<>
         <div className="bg-slate-700 rounded-2xl overflow-hidden p-4">
             <table className="min-w-full bg-slate-700 divide-y divide-[#ff9900be]">
@@ -99,7 +106,7 @@ const WalletsTable: React.FC<{
                 </thead>
                 <tbody>
                     {currentItems.map((wallet, index) => (
-                        <tr key={index} className="hover:bg-[#ff99003a] hover:text-white text-gray-100 cursor-pointer border-b border-[#ff990034] last:border-b-0">
+                        <tr onClick={() => goToChart(wallet.walletAddress)} key={index} className="hover:bg-[#ff99003a] hover:text-white text-gray-100 cursor-pointer border-b border-[#ff990034] last:border-b-0">
                             <td className="px-6 py-4 whitespace-nowrap text-lg font-medium min-h-[45px] rounded-sm">
                                 {formatNetProfit(wallet.netProfit)}
                             </td>
@@ -110,14 +117,13 @@ const WalletsTable: React.FC<{
             </table>
         </div>
 
-        <div className="flex align-middle justify-center mt-12">
-            <Pagination
-                totalItems={totalItems}
-                itemsPerPage={itemsPerPage}
-                currentPage={currentPage}
-                onPageChange={handlePageChange}
-            />
-        </div>
+        <Pagination
+            totalItems={totalItems}
+            itemsPerPage={itemsPerPage}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+        />
+
     </>)
 }
 
