@@ -69,18 +69,18 @@ const WalletsTable: React.FC<{
     }
 
     return (<>
-        <div className="bg-slate-700 rounded-2xl overflow-hidden p-4">
+        <div className="bg-slate-700 rounded-2xl overflow-x-auto p-4">
             <table className="min-w-full bg-slate-700 divide-y divide-[#ff9900be]">
                 <thead>
                     <tr>
-                        <th className="px-6 py-3 text-left text-lg font-semibold text-[#ff9800] uppercase tracking-wider min-h-12 flex" onClick={() => handleSort('netProfit')}>
+                        <th className="px-6 py-3 text-left text-xs md:text-lg font-semibold text-[#ff9800] uppercase tracking-wider min-h-12 flex" onClick={() => handleSort('netProfit')}>
                             Net Profit
                             {sortColumn === 'netProfit' && (
                                 <span className="ml-1 text-[#ff9800] cursor-pointer">
                                     {sortDirection === 'asc' ? <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        width="32"
-                                        height="32"
+                                        width="24"
+                                        height="24"
                                         viewBox="0 0 32 32"
                                     >
                                         <path
@@ -89,8 +89,8 @@ const WalletsTable: React.FC<{
                                         />
                                     </svg> : <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        width="32"
-                                        height="32"
+                                        width="24"
+                                        height="24"
                                         viewBox="0 0 32 32"
                                     >
                                         <path
@@ -101,7 +101,7 @@ const WalletsTable: React.FC<{
                                 </span>
                             )}
                         </th>
-                        <th className="px-6 py-3 text-left text-lg font-semibold text-[#ff9800] uppercase tracking-wider min-h-12">Wallet Address</th>
+                        <th className="px-6 py-3 text-left text-xs md:text-lg font-semibold text-[#ff9800] uppercase tracking-wider min-h-12">Wallet Address</th>
                     </tr>
                 </thead>
                 <tbody>

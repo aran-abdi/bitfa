@@ -44,7 +44,7 @@ function Home() {
 
         <>
 
-            <h1 className="text-5xl text-gray-300 font-bold mb-16">Welcome to <span className="text-[#ff9800]">Bitfa</span></h1>
+            <h1 className="text-3xl md:text-5xl text-gray-300 font-bold mb-16">Welcome to <span className="text-[#ff9800]">Bitfa</span></h1>
 
             <div className="w-10/12">
 

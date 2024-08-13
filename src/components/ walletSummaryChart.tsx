@@ -74,7 +74,7 @@ const WalletSummaryChart: React.FC<{
         },
         {
             type: 'bar' as const,
-            label: '# of Transactions',
+            label: 'Profit (Negative Or Positive)',
             data: profits.map(profit => Math.abs(profit)),
             backgroundColor: profits.map((profit) =>
                 profit >= 0 ? "rgba(144, 238, 144, 0.8)" : "rgba(255, 99, 132, 0.8)"
@@ -162,14 +162,14 @@ const WalletSummaryChart: React.FC<{
     }
 
     return (
-        <div className="w-2/3 border-2 border-slate-600 rounded-2xl p-10">
+        <div className="w-full md:w-2/3 md:border-2 border-slate-600 rounded-2xl p-2 md:p-10">
             <Chart
                 type='bar'
                 data={data}
                 options={options}
             />
 
-            <button onClick={goBack} className="text-slate-800 px-10 py-1 bg-[#ff9800] rounded-md mt-10 font-medium hover:bg-[#ff9900da]">Go Back</button>
+            <button onClick={goBack} className="text-slate-800 text-3xl md:text-base px-10 py-1 bg-[#ff9800] rounded-md mt-20 md:mt-10 font-medium hover:bg-[#ff9900da]">Go Back</button>
         </div>
     )
 

@@ -21,13 +21,13 @@ const Pagination: React.FC<{
             let rightSide = currentPage + 2;
 
             if (leftSide <= 2) {
-                rightSide = 5;
+                rightSide = 3;
                 leftSide = 1;
             }
 
             if (rightSide >= totalPages - 1) {
                 rightSide = totalPages;
-                leftSide = totalPages - 4;
+                leftSide = totalPages - 2;
             }
 
             for (let i = leftSide; i <= rightSide; i++) {
@@ -58,7 +58,7 @@ const Pagination: React.FC<{
                     onClick={() => onPageChange(currentPage - 1)}
                     disabled={currentPage === 1}
                 >
-                    Previous
+                    {`<`}
                 </button>
                 {pageNumbers.map((page, index) =>
                     typeof page === 'number' ? (
@@ -80,7 +80,7 @@ const Pagination: React.FC<{
                     onClick={() => onPageChange(currentPage + 1)}
                     disabled={currentPage === totalPages}
                 >
-                    Next
+                    {`>`}
                 </button>
             </div>
         </div>
